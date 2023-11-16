@@ -18,6 +18,7 @@ def extract_data(json):
         result.append({
            'descrizione' : item.get("alt_description",""),
            'username' : item.get("user",{}).get("name","")
+    logging.debug('dati scritti su json')
         })   
 
     for item in json:
@@ -28,7 +29,7 @@ def extract_data(json):
            foto_autore = item.get("user",{}).get("name","")
            foto_repository = FotoRepository()
            foto = foto_repository.aggiungi_foto(foto_id,foto_url,foto_descrizione,foto_link,foto_autore)
-
+    logging.debug('dati scritti su sb')
     return result
 
 ### ------------------------ internal functions ------------------------ ###
